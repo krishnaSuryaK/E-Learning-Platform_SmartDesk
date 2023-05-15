@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body{
+            background-image: url('/static/images/note.jpg');
+            background-position:center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+    }
+    .container{
+        padding-top: 15%;
+        padding-left: 60%;
+    }
+    .btn-info{
+        width: 100%;
+        
+    }
+</style>
+
+<div class="container">
+    {% if user.is_superuser %}
+    <a class="btn btn-info" href="{% url 'quiz:fileupload' %}" role="button"><h3>Upload</h3></a>
+    {% endif %}<br><br><br><br>
+    <a class="btn btn-info" href="{% url 'quiz:displaypdf' %}" role="button"><h3>Display</h3></a>
+
+</div>
+
+{% endblock %}

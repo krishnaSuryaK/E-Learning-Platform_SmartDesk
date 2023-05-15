@@ -1,0 +1,39 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100"
+                style="
+        height: 697px;">
+                <a href="{% url 'quiz:displaypdfai' %}" class="nav-link px-0">
+                    <span style="color: aliceblue;" class="d-none d-sm-inline">AI</span></a>
+
+                <a href="{% url 'quiz:displaypdfwt' %}" class="nav-link px-0">
+                    <span style="color: aliceblue;" class="d-none d-sm-inline">WT</span> </a>
+
+                <a href="{% url 'quiz:displaypdfos' %}" class="nav-link px-0">
+                    <span style="color: aliceblue;" class="d-none d-sm-inline">OS</span></a>
+
+                <a href="{% url 'quiz:displaypdfdm' %}" class="nav-link px-0">
+                    <span style="color: aliceblue;" class="d-none d-sm-inline">DM</span></a>
+
+                <a href="{% url 'quiz:displaypdfmccp' %}" class="nav-link px-0">
+                    <span style="color: aliceblue;" class="d-none d-sm-inline">MCCP</span></a>
+
+                <hr />
+            </div>
+        </div>
+        <div class="col py-3">
+            <center>
+                {% for pdf in pdfs %}
+                <div class="ok">
+            <h3>{{pdf}}</h3>
+            <iframe src="/static/upload/DM/{{pdf}}" width="800" height="500"><br>
+            </iframe><br><br>
+            </div>
+            {% endfor %}
+            </center>
+        </div>
+    </div>
+</div>
+{% endblock %}

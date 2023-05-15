@@ -1,0 +1,39 @@
+{% extends 'baseq.html' %}
+{% block title %} Add Question {% endblock %}
+
+{% block body %}
+<style>
+  th,td{
+    padding:10px; 
+  }
+  
+</style>
+<div class="container mt-4">
+  <form action="{% url 'quiz:add_question' %}" method="POST"> {% csrf_token %}
+    <table>
+      <th>
+        <td>{{ form.as_table }}</td>
+      </th>
+
+      </table><br>
+    &nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">Submit</button>
+  </form>
+  <br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Quiz</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    {% for question in questions %}
+    <tr>
+      <td><a href="{% url 'quiz:add_options' question.id %}">{{question.content}}</a></td>
+      <td>{{question.quiz}}</td>
+      <td><a href="{% url 'quiz:delete_question' question.id %}" class="btn btn-danger">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock %}

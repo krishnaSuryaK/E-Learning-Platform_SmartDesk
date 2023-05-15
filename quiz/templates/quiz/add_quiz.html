@@ -1,0 +1,21 @@
+{% extends 'baseq.html' %}
+{% block title %} Add Quiz {% endblock %}
+
+{% block body %}
+<style>
+    th,td{
+    padding:10px; 
+  }
+  
+</style>
+<div class="container mt-4">
+    <form action="{% url 'quiz:add_quiz' %}" method="POST"> {% csrf_token %}
+    <table>
+        <th>
+            <tr>{{ form.as_table }}</tr>
+        </th>
+    </table>
+    <br><button type="submit" class="btn btn-info">Submit</button>
+</form>
+</div>
+{% endblock %}

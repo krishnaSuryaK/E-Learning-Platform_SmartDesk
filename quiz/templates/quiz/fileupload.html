@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p><h1>File Upload</h1></p><br>
+<div class="answerbox">
+<form method="POST" class="post-form" enctype="multipart/form-data">  
+        {% csrf_token %}  
+        <table><th><td>{{ form.as_table}}  </td></th>     </table>
+        <a href="{% url 'quiz:notes' %}" class="saves btn btn-default">
+                <button type="submit" class="saves btn btn-default">Back</button>
+        </a>
+        <button type="submit" class="save btn btn-default">Save</button><br><br>    
+</form>  
+</div>
+<style>
+        *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 20px;
+  
+}
+.answerbox
+{
+height: 50%; /*Specify Height*/
+width:  35%; /*Specify Width*/
+/*Add 1px solid border, use any color you want*/
+align-items: center;
+margin: auto;
+display: block;
+display: grid;
+justify-content: center;
+transform: translate(4%, 0%);
+box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+text-align:center; /*Align the text to the center*/
+}
+h1{
+        margin-top: 8%;
+        
+}
+.save{
+        margin-left: 10%;
+}
+
+.post-form{
+        margin: auto;
+       
+}
+th,td{
+                padding:15px; 
+         }
+
+        
+        button{
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px 15px;
+    background: linear-gradient(122.33deg, #68bed1 30.62%, #1E94E9 100%);
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    transition: all 0.3s linear;
+}
+
+button:hover{
+        background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+</style>
+{% endblock %}
